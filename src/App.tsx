@@ -1,7 +1,7 @@
 import './App.css'
 import LogoComponent from './components/Logo'
-import MobileFrameComponent from './components/MobileFrame'
 import FormQRGeneratorComponent from './components/FormQRGenerator'
+import MainBannerComponent from './components/MainBanner'
 
 function App() {
 	return (
@@ -13,9 +13,11 @@ function App() {
 							<h1 className='mb-20'>
 								<LogoComponent />
 							</h1>
+							
 							<h2 className='font-sans text-6xl font-medium tracking-tight text-gray-900'>
 								Simplify your virtual card queries.
 							</h2>
+
 							<p className='mt-6 text-lg text-gray-600 mb-10'>
 								Easily create and share virtual card query codes that efficiently
 								redirect to the owner's page.
@@ -23,8 +25,9 @@ function App() {
 							
 							<FormQRGeneratorComponent />
 						</div>
-
-						<MobileFrameComponent />
+						<div className='relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6'>
+							<MainBannerComponent />
+						</div>
 					</div>
 				</div>
 			</div>
