@@ -1,7 +1,12 @@
 import { BsQrCode } from 'react-icons/bs'
+import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
 import LogoComponent from '../Logo'
 
 export const MobileFrameComponent = () => {
+
+	const { formData } = useFormQRGeneratorContext()
+	console.log(formData)
+	
 	return (
 		<div className='-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32'>
 			<div className='relative aspect-[366/729] mx-auto max-w-[366px]'>
@@ -14,13 +19,13 @@ export const MobileFrameComponent = () => {
 						<div className='mt-8 flex-auto rounded-t-2xl bg-white'>
 							<div className='p-4'>
 
-								<div className='mt-8 pt-5 text-center'>
+								<div className='mt-8 pt-8 text-center'>
 									
-										<h2 className='text-4xl text-gray-900 font-bold mb-14'>
-											John Doe
+										<h2 className='text-3xl text-gray-900 font-bold mb-5 pl-2 pr-2'>
+											{(formData && formData?.username) ? formData.username : 'Mauricio Mueller'}
 										</h2>
 
-										<p className='text-primary-500 text-3xl font-bold mb-10'>Scan Me</p>
+										<p className='text-primary-500 text-3xl font-bold pt-10 mb-6'>Scan Me</p>
 										<p className='text-9xl text-center w-100'>
 											<BsQrCode className='inline' />
 										</p>
