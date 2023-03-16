@@ -7,7 +7,6 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 export const MobileFrameComponent = () => {
 
 	const { formData } = useFormQRGeneratorContext()
-	console.log(formData)
 	
 	return (
 		<div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
