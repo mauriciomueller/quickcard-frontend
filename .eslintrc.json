@@ -24,12 +24,13 @@
       "prettier"
   ],
   "rules": {
-      "react/react-in-jsx-scope": "off",
-      "camelcase": "error",
-      "spaced-comment": "error",
-      "quotes": ["error", "single"],
-      "no-duplicate-imports": "error"
-  },
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "no-duplicate-imports": "error"
+},
   "settings": {
       "import/resolver": {
           "typescript": {}

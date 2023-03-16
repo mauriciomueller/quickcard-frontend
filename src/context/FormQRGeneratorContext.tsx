@@ -1,15 +1,16 @@
 import { createContext, useContext, useState } from 'react'
+import { backendApi } from '../services/backendApi'
 
 type FormDataType = {
 	username: string
-	linkedIn: string
-	gitHub: string
+	linkedInUrl: string
+	gitHubUrl: string
 }
 
 type ErrorsMessagesType = {
 	username: string
-	linkedIn: string
-	gitHub: string
+	linkedInUrl: string
+	gitHubUrl: string
 }
 
 type FormQRGeneratorContextType = {
@@ -34,11 +35,7 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [errorsMessages, setErrorsMessages] = useState<ErrorsMessagesType>({} as ErrorsMessagesType)
 	const [successMessage, setSuccessMessage] = useState<string>('')
-	const [formData, setFormData] = useState({
-    username: '',
-    linkedIn: '',
-		gitHub: '',
-  });
+	const [formData, setFormData] = useState({} as FormDataType);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
@@ -48,9 +45,18 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
     }));
 	}
 
-	const generateQueryCard = (event: React.FormEvent<HTMLFormElement>) => {
+	const generateQueryCard = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		console.log('test')
+		try {
+			const response = await backendApi.post('/generateQRCodeImage', {
+				username: 'Mauricio Mueller',
+				linkedInUrl: 'https://linkedin.com/in/mauriciomueller',
+				gitHubUrl: 'https://github.com/mauriciomueller',
+			})
+			setSuccessMessage(response.data.message)
+		} catch (error: any) {
+			setErrorsMessages(error)
+		}
 		setIsLoading(true)
 	}
 

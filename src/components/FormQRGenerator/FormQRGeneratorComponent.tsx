@@ -20,16 +20,16 @@ export const FormQRGeneratorComponent = () => {
 				<FormControl isInvalid={!!errorsMessages.username}>
 					<InputGroup>
 						<InputLeftAddon>
-							<label htmlFor='username'>Name</label>
+							<label htmlFor="username">Name</label>
 						</InputLeftAddon>
 						<Input
 							onChange={handleChange}
-							id='username'
-                            name='username'
-							type='input'
-							placeholder='ex.: Mauricio Mueller Zaccarias'
-							aria-labelledby='name-label'
-                            maxLength={50}
+							id="username"
+							name="username"
+							type="input"
+							placeholder="ex.: Mauricio Mueller Zaccarias"
+							aria-labelledby="name-label"
+							maxLength={50}
 						/>
 					</InputGroup>
 
@@ -39,52 +39,52 @@ export const FormQRGeneratorComponent = () => {
 				<FormControl isInvalid={!!errorsMessages.linkedIn}>
 					<InputGroup>
 						<InputLeftAddon>
-							<label htmlFor='linkedIn'>LinkedIn</label>
+							<label htmlFor="linkedInUrl">LinkedIn</label>
 						</InputLeftAddon>
 						<Input
 							onChange={handleChange}
-							id='linkedIn'
-                            name='linkedIn'
-							type='input'
-							placeholder='ex.: https://www.linkedin.com/in/mauriciomueller/'
-							aria-labelledby='linkedIn-label'
-                            maxLength={150}
+							id="linkedInUrl"
+							name="linkedInUrl"
+							type="input"
+							placeholder="ex.: https://linkedin.com/in/mauriciomueller/"
+							aria-labelledby="linkedInUrl-label"
+							maxLength={150}
 						/>
 					</InputGroup>
 
-					<FormErrorMessage>{errorsMessages.linkedIn}</FormErrorMessage>
+					<FormErrorMessage>{errorsMessages.linkedInUrl}</FormErrorMessage>
 				</FormControl>
 
-				<FormControl isInvalid={!!errorsMessages.gitHub}>
+				<FormControl isInvalid={!!errorsMessages.gitHubUrl}>
 					<InputGroup>
 						<InputLeftAddon>
-							<label htmlFor='gitHub'>Github URL</label>
+							<label htmlFor="gitHubUrl">Github URL</label>
 						</InputLeftAddon>
 						<Input
 							onChange={handleChange}
-							id='gitHub'
-                            name='gitHub'
-							type='input'
-							placeholder='ex.: https://github.com/mauriciomueller/'
-							aria-labelledby='gitHub-label'
-                            maxLength={150}
+							id="gitHubUrl"
+							name="gitHubUrl"
+							type="input"
+							placeholder="ex.: https://github.com/mauriciomueller/"
+							aria-labelledby="gitHubUrl-label"
+							maxLength={150}
 						/>
 					</InputGroup>
 
-					<FormErrorMessage>{errorsMessages.gitHub}</FormErrorMessage>
+					<FormErrorMessage>{errorsMessages.gitHubUrl}</FormErrorMessage>
 				</FormControl>
 
-				<Stack direction='row' spacing={4}>
+				<Stack direction="row" spacing={4}>
 					<Button
-                        type="submit"
+						type="submit"
 						leftIcon={<BsQrCode />}
-						colorScheme='pink'
-						variant='solid'
+						colorScheme="pink"
+						variant="solid"
 						isLoading={isLoading}
-						loadingText='Generating your Query Card'
-						spinnerPlacement='start'
+						loadingText="Generating your Query Card"
+						spinnerPlacement="start"
 					>
-						Generate your Query Card
+						Generate your QueryCard
 					</Button>
 				</Stack>
 			</Stack>
