@@ -2,12 +2,12 @@ import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
 import { useEffect, useRef, useState } from 'react'
 import { getDeviceDimensions } from '../../services/getDeviceDimensions'
 
-export const QueryCardHtmlComponent = () => {
-	const { formData, userQueryCodeImage, setElementRef } = useFormQRGeneratorContext()
+export const QuickCardHtmlComponent = () => {
+	const { formData, userQuickCodeImage, setElementRef } = useFormQRGeneratorContext()
 
 	useEffect(() => {
 		setElementRef(elementRef)
-	}, [userQueryCodeImage])
+	}, [userQuickCodeImage])
 
 	useEffect(() => {
 		if(formData.deviceId) {
@@ -53,8 +53,8 @@ export const QueryCardHtmlComponent = () => {
 						marginTop: '0px',
 						display: 'inline',
 					}}
-					src="/img/query-card-logo.svg"
-					alt="QueryCard logo"
+					src="/img/quick-card-logo.svg"
+					alt="QuickCard logo"
 				/>
 
 				<p
@@ -67,7 +67,7 @@ export const QueryCardHtmlComponent = () => {
 						color: 'white',
 					}}
 				>
-					QueryCard
+					QuickCard
 				</p>
 			</div>
 			<div
@@ -103,7 +103,7 @@ export const QueryCardHtmlComponent = () => {
 					Scan Me
 				</div>
 				<div>
-					{userQueryCodeImage && <img src={userQueryCodeImage} alt="QR code" />}
+					{userQuickCodeImage && <img src={userQuickCodeImage} alt="QR code" />}
 				</div>
 			</div>
 		</div>

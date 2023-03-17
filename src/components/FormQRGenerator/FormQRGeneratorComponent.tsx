@@ -13,14 +13,14 @@ import {
 import { BsQrCode } from 'react-icons/bs'
 import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
 import { useState, useRef } from 'react'
-import QueryCardHtmlComponent from '../QueryCardHtml'
+import QuickCardHtmlComponent from '../QuickCardHtml'
 import { devices } from '../../constants/devices'
 
 export const FormQRGeneratorComponent = () => {
 	const {
 		handleChange,
 		formData,
-		generateQueryCardImage,
+		generateQuickCardImage,
 		isLoading,
 		errorsMessages,
 		successMessage,
@@ -34,7 +34,7 @@ export const FormQRGeneratorComponent = () => {
 			{successMessage && (
 				<Alert className="rounded-md" status="success" variant="left-accent">
 					<AlertIcon />
-					Your QueryCard Image was generated with success!
+					Your QuickCard Image was generated with success!
 				</Alert>
 			)}
 
@@ -48,7 +48,7 @@ export const FormQRGeneratorComponent = () => {
 			<form
 				onSubmit={(e) => {
 					e.preventDefault()
-					generateQueryCardImage(formData, elementRef)
+					generateQuickCardImage(formData, elementRef)
 				}}
 			>
 				<Stack spacing={4}>
@@ -75,7 +75,7 @@ export const FormQRGeneratorComponent = () => {
 					<FormControl isInvalid={!!errorsMessages.linkedInUrl}>
 						<InputGroup>
 							<InputLeftAddon>
-								<label htmlFor="linkedInUrl">LinkedIn</label>
+								<label htmlFor="linkedInUrl">LinkedIn URL</label>
 							</InputLeftAddon>
 							<Input
 								isRequired
@@ -135,17 +135,17 @@ export const FormQRGeneratorComponent = () => {
 							colorScheme="pink"
 							variant="solid"
 							isLoading={isLoading}
-							loadingText="Generating your Query Card"
+							loadingText="Generating your Quick Card"
 							spinnerPlacement="start"
 						>
-							Generate your QueryCard
+							Generate your QuickCard
 						</Button>
 					</Stack>
 				</Stack>
 			</form>
 
 			<div className="h-0 overflow-hidden">
-				<QueryCardHtmlComponent />
+				<QuickCardHtmlComponent />
 			</div>
 		</>
 	)

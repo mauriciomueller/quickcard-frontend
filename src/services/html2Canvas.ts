@@ -13,7 +13,7 @@ export const html2Canvas = async (username: string, elementRef:React.MutableRefO
   const link = document.createElement('a');
 
   link.href = url;
-  link.download = username + ' QueryCard';
+  link.download = username + ' QuickCard';
   document.body.appendChild(link);
   link.click();    
   document.body.removeChild(link);  

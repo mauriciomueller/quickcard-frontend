@@ -23,7 +23,7 @@ export const MobileFrameComponent = () => {
 								<div className="pt-3 text-center">
 										
 											<div className="rounded-xl bg-blue-100 border border-blue-500  text-blue-700 px-4 py-3" role="alert">
-  											<p className="text-sm flex items-center gap-2"><AiOutlineInfoCircle />This is only your QueryCard preview.</p>
+  											<p className="text-sm flex items-center gap-2"><AiOutlineInfoCircle />This is only your QuickCard preview.</p>
 											</div>											
 											
 											<h2 className="text-3xl mt-8 text-gray-900 font-bold mb-5 pl-2 pr-2">

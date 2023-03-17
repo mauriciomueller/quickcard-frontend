@@ -1,1 +1,1 @@
-# query card
+# quick card

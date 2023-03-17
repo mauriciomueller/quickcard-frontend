@@ -12,14 +12,14 @@ export type FormDataType = {
 type FormQRGeneratorContextType = {
 	handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	formData: FormDataType
-	generateQueryCardImage: (
+	generateQuickCardImage: (
 		formData: FormDataType,
 		elementRef: React.MutableRefObject<null>,
 	) => Promise<void>
 	isLoading: boolean
 	errorsMessages: ErrorsMessagesType
 	successMessage: string
-	userQueryCodeImage: string
+	userQuickCodeImage: string
 	setElementRef: React.Dispatch<React.SetStateAction<React.MutableRefObject<null> | null>>
 }
 
@@ -47,7 +47,7 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 	)
 	const [successMessage, setSuccessMessage] = useState<string>('')
 	const [formData, setFormData] = useState({} as FormDataType)
-	const [userQueryCodeImage, setUserQueryCodeImage] = useState<string>('')
+	const [userQuickCodeImage, setUserQuickCodeImage] = useState<string>('')
 	const [elementRef, setElementRef] = useState<React.MutableRefObject<null> | null>(null)
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -58,7 +58,7 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 		}))
 	}
 
-	const generateQueryCardImage = async (formData: FormDataType) => {
+	const generateQuickCardImage = async (formData: FormDataType) => {
 		setIsLoading(true)
 		try {
 			const response = await backendApi.post('/generateQRCodeImage', {
@@ -67,7 +67,7 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 				gitHubUrl: formData.gitHubUrl,
 			})
 
-			await setUserQueryCodeImage(response.data)
+			await setUserQuickCodeImage(response.data)
 			setSuccessMessage(response.data.message)
 		} catch (error: any) {
 			setErrorsMessages(error)
@@ -79,21 +79,21 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 	}
 
 	useEffect(() => {
-		if (userQueryCodeImage && formData.username && elementRef) {
+		if (userQuickCodeImage && formData.username && elementRef) {
 			html2Canvas(formData.username, elementRef)
 		}
-	}, [userQueryCodeImage])
+	}, [userQuickCodeImage])
 
 	return (
 		<FormQRGeneratorContext.Provider
 			value={{
 				handleChange,
 				formData,
-				generateQueryCardImage,
+				generateQuickCardImage,
 				isLoading,
 				errorsMessages,
 				successMessage,
-				userQueryCodeImage,
+				userQuickCodeImage,
 				setElementRef,
 			}}
 		>

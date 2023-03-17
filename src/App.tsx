@@ -19,7 +19,7 @@ function App() {
 							</h2>
 
 							<p className="mt-6 text-lg text-gray-600 mb-10">
-								Easily create and share virtual card query codes that efficiently
+								Easily create and share virtual card QRcodes that efficiently
 								redirect to the owner&lsquo;s page.
 							</p>
 							
