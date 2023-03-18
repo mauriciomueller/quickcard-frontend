@@ -5,12 +5,10 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { FormQRGeneratorProvider } from './context/FormQRGeneratorContext'
 import { queryClient } from './services/queryClient'
 import { QueryClientProvider } from 'react-query'
-import { BrowserRouter } from 'react-router-dom'
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
-		<BrowserRouter>
 			<ChakraProvider>
 				<FormQRGeneratorProvider>
 					<QueryClientProvider client={queryClient}>
@@ -18,6 +16,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           </QueryClientProvider>
 				</FormQRGeneratorProvider>
 			</ChakraProvider>
-		</BrowserRouter>
 	</React.StrictMode>,
 )

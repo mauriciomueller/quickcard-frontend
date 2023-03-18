@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { BsQrCode } from 'react-icons/bs'
 import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import QuickCardHtmlComponent from '../QuickCardHtml'
 import { devices } from '../../constants/devices'
 
@@ -26,7 +26,6 @@ export const FormQRGeneratorComponent = () => {
 		successMessage,
 	} = useFormQRGeneratorContext()
 
-	const [loading, setLoading] = useState(false)
 	const elementRef = useRef(null)
 
 	return (

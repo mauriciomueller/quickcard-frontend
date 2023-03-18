@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { backendApi } from '../services/backendApi'
 import { html2Canvas } from '../services/html2Canvas'
+import { generateQuickCardImageApi } from '../services/quickCardApi';
+import { handleApiErrors } from '../services/apiErrorHandler';
 
 export type FormDataType = {
 	username: string
@@ -23,13 +24,13 @@ type FormQRGeneratorContextType = {
 	setElementRef: React.Dispatch<React.SetStateAction<React.MutableRefObject<null> | null>>
 }
 
-type ErrorsType = {
+export type ErrorsType = {
 	username?: string
 	linkedInUrl?: string
 	gitHubUrl?: string
 }	
 
-type ErrorsMessagesType = {
+export type ErrorsMessagesType = {
 	errors: ErrorsType
 	message: string
 	success: boolean
@@ -72,20 +73,17 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 		clearStatus()
 		setIsLoading(true)
 		try {
-			const response = await backendApi.post('/generate-qr-code-image', {
-				username: formData.username,
-				linkedInUrl: formData.linkedInUrl,
-				gitHubUrl: formData.gitHubUrl,
-			})
+			const quickCardImageData = await generateQuickCardImageApi(formData);
 
-			await setUserQuickCodeImage(response.data)
+			await setUserQuickCodeImage(quickCardImageData)
+			
 			setSuccessMessage('Your QuickCard was generated successfully!')
-		} catch (error: any) {
-			setErrorsMessages(error.response.data)
+		} catch (error: unknown) {
+			handleApiErrors(error, setErrorsMessages);
 		} finally {
 			setIsLoading(false)
 		}
-
+		
 		setIsLoading(false)
 	}
 
