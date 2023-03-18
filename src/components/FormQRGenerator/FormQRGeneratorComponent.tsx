@@ -32,14 +32,14 @@ export const FormQRGeneratorComponent = () => {
 	return (
 		<>
 			{successMessage && (
-				<Alert className="rounded-md" status="success" variant="left-accent">
+				<Alert className="rounded-md mb-6" status="success" variant="left-accent">
 					<AlertIcon />
-					Your QuickCard Image was generated with success!
+						{successMessage}
 				</Alert>
 			)}
 
-			{errorsMessages && errorsMessages.alert && (
-				<Alert className="rounded-md" status="error" variant="left-accent">
+			{errorsMessages && errorsMessages.message && (
+				<Alert className="rounded-md mb-6" status="error" variant="left-accent">
 					<AlertIcon />
 					There was an error processing your request!
 				</Alert>
@@ -52,7 +52,7 @@ export const FormQRGeneratorComponent = () => {
 				}}
 			>
 				<Stack spacing={4}>
-					<FormControl isInvalid={!!errorsMessages.username}>
+					<FormControl isInvalid={!!errorsMessages?.errors?.username}>
 						<InputGroup>
 							<InputLeftAddon>
 								<label htmlFor="username">Name</label>
@@ -69,10 +69,10 @@ export const FormQRGeneratorComponent = () => {
 							/>
 						</InputGroup>
 
-						<FormErrorMessage>{errorsMessages.username}</FormErrorMessage>
+						<FormErrorMessage>{errorsMessages?.errors?.username}</FormErrorMessage>
 					</FormControl>
 
-					<FormControl isInvalid={!!errorsMessages.linkedInUrl}>
+					<FormControl isInvalid={!!errorsMessages?.errors?.linkedInUrl}>
 						<InputGroup>
 							<InputLeftAddon>
 								<label htmlFor="linkedInUrl">LinkedIn URL</label>
@@ -89,10 +89,10 @@ export const FormQRGeneratorComponent = () => {
 							/>
 						</InputGroup>
 
-						<FormErrorMessage>{errorsMessages.linkedInUrl}</FormErrorMessage>
+						<FormErrorMessage>{errorsMessages?.errors?.linkedInUrl}</FormErrorMessage>
 					</FormControl>
 
-					<FormControl isInvalid={!!errorsMessages.gitHubUrl}>
+					<FormControl isInvalid={!!errorsMessages?.errors?.gitHubUrl}>
 						<InputGroup>
 							<InputLeftAddon>
 								<label htmlFor="gitHubUrl">Github URL</label>
@@ -109,7 +109,7 @@ export const FormQRGeneratorComponent = () => {
 							/>
 						</InputGroup>
 
-						<FormErrorMessage>{errorsMessages.gitHubUrl}</FormErrorMessage>
+						<FormErrorMessage>{errorsMessages?.errors?.gitHubUrl}</FormErrorMessage>
 					</FormControl>
 					<FormControl>
 						<Select

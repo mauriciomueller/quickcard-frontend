@@ -23,11 +23,16 @@ type FormQRGeneratorContextType = {
 	setElementRef: React.Dispatch<React.SetStateAction<React.MutableRefObject<null> | null>>
 }
 
+type ErrorsType = {
+	username?: string
+	linkedInUrl?: string
+	gitHubUrl?: string
+}	
+
 type ErrorsMessagesType = {
-	username: string
-	linkedInUrl: string
-	gitHubUrl: string
-	alert: string
+	errors: ErrorsType
+	message: string
+	success: boolean
 }
 
 type ChildrenContextType = {
@@ -58,19 +63,25 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 		}))
 	}
 
+	const clearStatus = () => {
+		setErrorsMessages({} as ErrorsMessagesType)
+		setSuccessMessage('')
+	}
+
 	const generateQuickCardImage = async (formData: FormDataType) => {
+		clearStatus()
 		setIsLoading(true)
 		try {
-			const response = await backendApi.post('/generateQRCodeImage', {
+			const response = await backendApi.post('/generate-qr-code-image', {
 				username: formData.username,
 				linkedInUrl: formData.linkedInUrl,
 				gitHubUrl: formData.gitHubUrl,
 			})
 
 			await setUserQuickCodeImage(response.data)
-			setSuccessMessage(response.data.message)
+			setSuccessMessage('Your QuickCard was generated successfully!')
 		} catch (error: any) {
-			setErrorsMessages(error)
+			setErrorsMessages(error.response.data)
 		} finally {
 			setIsLoading(false)
 		}
