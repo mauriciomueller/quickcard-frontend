@@ -1,7 +1,6 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { GenerateQuickCard } from './pages/GenerateQuickCard'
 import { ShowUserQuickCard } from './pages/ShowUserQuickCard'
-import './App.css'
 
 function App() {
 	return (

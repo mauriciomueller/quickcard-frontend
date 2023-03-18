@@ -8,7 +8,7 @@ export function GenerateQuickCard() {
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
 						<div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-							<h1 className="mb-20">
+							<h1 className="mb-16">
 								<LogoComponent />
 							</h1>
 							
@@ -16,7 +16,7 @@ export function GenerateQuickCard() {
 								Simplify your virtual card queries.
 							</h2>
 
-							<p className="mt-6 text-lg text-gray-600 mb-10">
+							<p className="mt-6 text-lg text-gray-600 mb-8">
 								Easily create and share virtual card QRcodes that efficiently
 								redirect to the owner&lsquo;s page.
 							</p>

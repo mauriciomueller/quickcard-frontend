@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+main section p {
+  @apply mb-4;
+}
+
+.chakra-input__left-addon {
+  min-width: 140px;
+  justify-content: flex-end;
+  font-weight: bold;
+  color: #6a6e72;
+}
+
 .animate-spin-slower {
   animation: spin 6s linear infinite
 }
