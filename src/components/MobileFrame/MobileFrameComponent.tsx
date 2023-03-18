@@ -9,7 +9,7 @@ export const MobileFrameComponent = () => {
 	const { formData } = useFormQRGeneratorContext()
 	
 	return (
-		<div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
+		<div className="-mx-4 h-[750px] px-9 sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
 			<div className="relative aspect-[366/729] mx-auto max-w-[366px]">
 				<div className="absolute inset-y-[calc(1/729*100%)] right-[calc(5/729*100%)] left-[calc(7/729*100%)] rounded-[calc(58/366*100%)/calc(58/729*100%)] shadow-2xl"></div>
 				<div className="absolute top-[calc(23/729*100%)] left-[calc(23/366*100%)] grid h-[calc(686/729*100%)] w-[calc(318/366*100%)] transform grid-cols-1 overflow-hidden bg-gray-900 pt-[calc(23/318*100%)]">
@@ -26,12 +26,12 @@ export const MobileFrameComponent = () => {
   											<p className="text-sm flex items-center gap-2"><AiOutlineInfoCircle />This is only your QuickCard preview.</p>
 											</div>											
 											
-											<h2 className="text-3xl mt-8 text-gray-900 font-bold mb-5 pl-2 pr-2">
+											<h2 className="text-2xl md:text-3xl mt-8 text-gray-900 font-bold mb-0 md:mb-5 pl-2 pr-2">
 												{(formData && formData?.username) ? formData.username : 'Mauricio Mueller'}
 											</h2>
 
-											<p className="text-primary-500 text-3xl font-bold pt-10 mb-6">Scan Me</p>
-											<p className="text-9xl text-center w-100">
+											<p className="text-primary-500 text-2xl sm:text-3xl font-bold pt-5 md:pt-10 mb-0 md:mb-2">Scan Me</p>
+											<p className="text-8xl sm:text-9xl text-center w-100">
 												<BsQrCode className="inline" />
 											</p>
 								</div>

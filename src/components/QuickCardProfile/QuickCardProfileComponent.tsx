@@ -19,7 +19,7 @@ export const QuickCardProfileComponent = () => {
   }
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-blue-500 via-violet-500 to-primary-500 overflow-x-hidden p-8">
+		<>
 			<div className="max-w-4xl mx-auto">
 				<h1 className="font-sans text-5xl md:text-6xl font-medium tracking-tight text-white text-center p-12 mb-4">
 					Hello, my name is
@@ -43,11 +43,11 @@ export const QuickCardProfileComponent = () => {
 			</div>
       
 			
-				<FooterSocialButtonsComponent
-					linkedinUrl={data?.result.linkedin_url}
-					githubUrl={data?.result.github_url}
-					isLoading={isLoading}
-				/>
-    </div>
+			<FooterSocialButtonsComponent
+				linkedinUrl={data?.result.linkedin_url}
+				githubUrl={data?.result.github_url}
+				isLoading={isLoading}
+			/>
+		</>
   );
 };
