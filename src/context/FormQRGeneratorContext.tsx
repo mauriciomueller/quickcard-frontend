@@ -73,6 +73,7 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 		clearStatus()
 		setIsLoading(true)
 		try {
+			console.log(formData)
 			const quickCardImageData = await generateQuickCardImageApi(formData);
 
 			await setUserQuickCodeImage(quickCardImageData)

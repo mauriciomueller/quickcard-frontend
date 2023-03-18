@@ -2,7 +2,7 @@ import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
 import { useEffect, useRef, useState } from 'react'
 import { getDeviceDimensions } from '../../services/getDeviceDimensions'
 
-export const QuickCardHtmlComponent = () => {
+export const QuickCardImageHtmlComponent = () => {
 	const { formData, userQuickCodeImage, setElementRef } = useFormQRGeneratorContext()
 
 	useEffect(() => {

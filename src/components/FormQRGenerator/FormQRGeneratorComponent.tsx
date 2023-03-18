@@ -13,7 +13,7 @@ import {
 import { BsQrCode } from 'react-icons/bs'
 import { useFormQRGeneratorContext } from '../../context/FormQRGeneratorContext'
 import { useRef } from 'react'
-import QuickCardHtmlComponent from '../QuickCardHtml'
+import QuickCardImageHtmlComponent from '../QuickCardImageHtml'
 import { devices } from '../../constants/devices'
 
 export const FormQRGeneratorComponent = () => {
@@ -144,7 +144,7 @@ export const FormQRGeneratorComponent = () => {
 			</form>
 
 			<div className="h-0 overflow-hidden">
-				<QuickCardHtmlComponent />
+				<QuickCardImageHtmlComponent />
 			</div>
 		</>
 	)
