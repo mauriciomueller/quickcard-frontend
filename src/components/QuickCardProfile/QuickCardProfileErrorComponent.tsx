@@ -18,7 +18,7 @@ export const QuickCardProfileErrorComponent = () => {
 						We are very sorry for that!
 					</AlertTitle>
 				
-					<AlertDescription maxWidth="sm">
+					<AlertDescription data-testid="QuickCardErrorText" maxWidth="sm">
 						<p>Oh no! Something went wrong while loading this user QuickCard profile. Please try again later.</p>
 					</AlertDescription>
 	

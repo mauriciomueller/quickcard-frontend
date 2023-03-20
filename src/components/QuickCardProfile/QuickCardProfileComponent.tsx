@@ -28,11 +28,11 @@ export const QuickCardProfileComponent = () => {
   })
 	/* eslint-enable camelcase */
 
-/*
+
 	if (error) {
     return <QuickCardProfileErrorComponent />
 	}
-*/
+
   return (
 		<>
 			<div className="max-w-4xl mx-auto">

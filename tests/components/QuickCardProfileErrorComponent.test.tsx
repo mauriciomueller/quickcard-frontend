@@ -24,21 +24,21 @@ jest.mock('react-query', () => ({
       },
     }, 
     isLoading: false,
-    error: false 
+    error: true 
   }))
 }));
 /* eslint-enable camelcase */
 
-describe('QuickCardProfileComponent', () => {
+describe('QuickCardProfileErrorComponent', () => {
   beforeEach(() => {
     (useParams as jest.Mock).mockReturnValue({ slug: 'john-doe' });
   });
 
-	it('should render all input fields and generate the quick card image', async () => {
+	it('should render quick card error component', async () => {
 		render(<QuickCardProfileComponent />)
 
-    const profileUsername = await screen.findByTestId('profileUsername')
-    expect(profileUsername).toBeInTheDocument()
-    expect(profileUsername).toHaveTextContent('John Doe')
+    const quickCardErrorText = await screen.findByTestId('QuickCardErrorText')
+    expect(quickCardErrorText).toBeInTheDocument()
+    expect(quickCardErrorText).toHaveTextContent('Oh no! Something went wrong while loading this user QuickCard profile. Please try again later.')
 	})
 })
