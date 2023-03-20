@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest",
+    "coverage": "jest --coverage",
     "build:css": "postcss src/styles.css -o public/styles.css",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

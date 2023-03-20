@@ -45,6 +45,7 @@ export const FormQRGeneratorComponent = () => {
 			)}
 
 			<form
+				data-testid="qrGeneratorForm"
 				onSubmit={(e) => {
 					e.preventDefault()
 					generateQuickCardImage(formData, elementRef)
@@ -57,6 +58,7 @@ export const FormQRGeneratorComponent = () => {
 								<label htmlFor="username">Name</label>
 							</InputLeftAddon>
 							<Input
+								data-testid="usernameInput"
 								isRequired
 								onChange={handleChange}
 								id="username"
@@ -77,6 +79,7 @@ export const FormQRGeneratorComponent = () => {
 								<label htmlFor="linkedInUrl">LinkedIn URL</label>
 							</InputLeftAddon>
 							<Input
+								data-testid="linkedInUrlInput"
 								isRequired
 								onChange={handleChange}
 								id="linkedInUrl"
@@ -97,6 +100,7 @@ export const FormQRGeneratorComponent = () => {
 								<label htmlFor="gitHubUrl">Github URL</label>
 							</InputLeftAddon>
 							<Input
+								data-testid="gitHubUrlInput"
 								isRequired
 								onChange={handleChange}
 								id="gitHubUrl"
@@ -112,6 +116,7 @@ export const FormQRGeneratorComponent = () => {
 					</FormControl>
 					<FormControl>
 						<Select
+							data-testid="deviceIdSelect"
 							isRequired
 							id="deviceId"
 							name="deviceId"
@@ -129,6 +134,7 @@ export const FormQRGeneratorComponent = () => {
 					</FormControl>
 					<Stack direction="row" spacing={4}>
 						<Button
+							data-testid="generateQuickCardSubmitButton"
 							type="submit"
 							leftIcon={<BsQrCode />}
 							colorScheme="pink"

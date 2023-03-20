@@ -29,5 +29,5 @@ export function GenerateQuickCard() {
 					</div>
 				</div>
 			</div>
-  );
+  )
 }

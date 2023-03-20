@@ -6,8 +6,8 @@ export type DevicesType = {
 }
 
 export type DevicesObjectType = {
-  [key: number]: DevicesType;
-};
+  [key: number]: DevicesType
+}
 
 export const devices: DevicesObjectType = {
   1: { name: 'iPhone SE (1st and 2nd gen)', width: 320, height: 568 },

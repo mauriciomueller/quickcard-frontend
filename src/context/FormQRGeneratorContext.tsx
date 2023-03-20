@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { html2Canvas } from '../services/html2Canvas'
-import { generateQuickCardImageApi } from '../services/quickCardApi';
-import { handleApiErrors } from '../services/apiErrorHandler';
+import { generateQuickCardImageApi } from '../services/quickCardApi'
+import { handleApiErrors } from '../services/apiErrorHandler'
 
 export type FormDataType = {
 	username: string
@@ -10,7 +10,7 @@ export type FormDataType = {
 	deviceId: number
 }
 
-type FormQRGeneratorContextType = {
+export type FormQRGeneratorContextType = {
 	handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
 	formData: FormDataType
 	generateQuickCardImage: (
@@ -44,7 +44,7 @@ const FormQRGeneratorContext = createContext<FormQRGeneratorContextType>(
 	{} as FormQRGeneratorContextType,
 )
 
-export const useFormQRGeneratorContext = () => useContext(FormQRGeneratorContext)
+export const useFormQRGeneratorContext = ():FormQRGeneratorContextType => useContext(FormQRGeneratorContext)
 
 export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -62,6 +62,8 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 			...prevState,
 			[name]: value,
 		}))
+
+		console.log({formData})
 	}
 
 	const clearStatus = () => {
@@ -74,13 +76,13 @@ export const FormQRGeneratorProvider = ({ children }: ChildrenContextType) => {
 		setIsLoading(true)
 		try {
 			console.log(formData)
-			const quickCardImageData = await generateQuickCardImageApi(formData);
+			const quickCardImageData = await generateQuickCardImageApi(formData)
 
 			await setUserQuickCodeImage(quickCardImageData)
 			
 			setSuccessMessage('Your QuickCard was generated successfully!')
 		} catch (error: unknown) {
-			handleApiErrors(error, setErrorsMessages);
+			handleApiErrors(error, setErrorsMessages)
 		} finally {
 			setIsLoading(false)
 		}

@@ -10,23 +10,23 @@ export const QuickCardImageHtmlComponent = () => {
 	}, [userQuickCodeImage])
 
 	useEffect(() => {
-		if(formData.deviceId) {
-			const dimensions = getDeviceDimensions(formData.deviceId);
+		if (formData.deviceId) {
+			const dimensions = getDeviceDimensions(formData.deviceId)
 			if (dimensions) {
-				setWidth(dimensions.width + 'px');
-				setHeight(dimensions.height + 'px');
+				setWidth(dimensions.width + 'px')
+				setHeight(dimensions.height + 'px')
 			}
 		}
-		
 	}, [formData])
 
 	const elementRef = useRef(null)
-	
+
 	const [width, setWidth] = useState('400px')
 	const [height, setHeight] = useState('600px')
 
 	return (
 		<div
+			data-testid="quickCardImageHtml"
 			ref={elementRef}
 			style={{
 				width: width,
@@ -39,6 +39,7 @@ export const QuickCardImageHtmlComponent = () => {
 			}}
 		>
 			<div
+				data-testid="quickCardImageHtmlLogo"
 				style={{
 					display: 'flex',
 					alignItems: 'center',
@@ -46,6 +47,7 @@ export const QuickCardImageHtmlComponent = () => {
 				}}
 			>
 				<img
+					data-testid="quickCardImageHtmlLogoSymbol"
 					style={{
 						width: '40px',
 						height: '40px',
@@ -58,6 +60,7 @@ export const QuickCardImageHtmlComponent = () => {
 				/>
 
 				<p
+					data-testid="quickCardImageHtmlLogoText"
 					style={{
 						fontFamily: 'sans-serif',
 						fontWeight: 'bold',
@@ -78,32 +81,41 @@ export const QuickCardImageHtmlComponent = () => {
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
+					justifyContent: 'space-evenly',
 					borderTopLeftRadius: '20px',
 					borderTopRightRadius: '20px',
-					padding: '60px 60px'
+					padding: '60px 60px',
 				}}
 			>
-				<div style={{ 
-					fontFamily: 'sans-serif', 
-					fontSize: '2rem',
-					fontWeight: 'bold',
-					marginBottom: '40px',
-					lineHeight: '2.2rem',
-					textAlign: 'center',
-					}}>
-					{formData && formData?.username}
-				</div>
-				<div style={{ 
-					fontFamily: 'sans-serif', 
-					fontSize: '2rem',
-					fontWeight: 'bold',
-					color: 'rgb(213 63 140)',
-					marginBottom: '20px',
-					}}>
-					Scan Me
+				<div
+					data-testid="quickCardImageHtmlUsername"
+					style={{
+						fontFamily: 'sans-serif',
+						fontSize: '2rem',
+						fontWeight: 'bold',
+						marginBottom: '40px',
+						lineHeight: '2.2rem',
+						textAlign: 'center',
+					}}
+				>
+					{formData && formData?.username }
 				</div>
 				<div>
-					{userQuickCodeImage && <img src={userQuickCodeImage} alt="QR code" />}
+					<div
+						style={{
+							fontFamily: 'sans-serif',
+							fontSize: '2rem',
+							fontWeight: 'bold',
+							color: 'rgb(213 63 140)',
+							marginBottom: '20px',
+							textAlign: 'center',
+						}}
+					>
+						Scan Me
+					</div>
+					<div data-testid="quickCardImageHtmlQRCode">
+						{userQuickCodeImage && <img src={userQuickCodeImage} alt="QR code" />}
+					</div>
 				</div>
 			</div>
 		</div>
